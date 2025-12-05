@@ -18,29 +18,39 @@ body {
 
 /* Header styling */
 header {
-    padding: 50px 100px;
+    position: relative;
     background-image: linear-gradient(168deg,var(--main-color) 0%, var(--main-color) 60.5%, rgba(255, 255, 255, 1) 61%, rgba(255, 255, 255, 1) 100%);
-    display: flex;
-    justify-content: center;
+    margin: auto;
 }
 
 .header-wrapper {
-    position: relative;
-    max-width: 1200px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px;
+}
+
+.profile-wrapper {
+    -webkit-box-shadow: 5px 5px 10px -3px rgba(0,0,0,0.49); 
+    box-shadow: 5px 5px 10px -3px rgba(0,0,0,0.49);
+    position: relative;
+    overflow: hidden;
 }
 
 .profile {
-    max-width: 550px;
+    width: 500px;
     height: auto;
-    -webkit-box-shadow: 5px 5px 10px -3px rgba(0,0,0,0.49); 
-    box-shadow: 5px 5px 10px -3px rgba(0,0,0,0.49);
-    flex: 1 1 0px;
-    object-fit: cover;
-    float: left;
-    shape-outside: square;
+    display: block;
+}
+
+.profile-wrapper::after {
+    content: "";
+    display: block;
+    width: 150%;
+    height: 150%;
+    position: absolute;
+    top: -25%;
+    left: -25%;
 }
 
 .profile-name {
@@ -57,8 +67,7 @@ header {
     box-shadow: 5px 5px 10px -3px rgba(0,0,0,0.49);
     padding: 30px;
     background-color: white;
-    flex: 1 1 0px;
-    min-width: 500px;
+    width: min(100vw - 40px, 600px);
 }
 
 .about-title {
@@ -112,6 +121,7 @@ main {
     max-height: 250px;
     width: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
 .card-bar {
@@ -200,12 +210,36 @@ footer {
     width: 100%;
     max-height: 500px;
     object-fit: cover;
+    object-position: center;
     flex: 1 1 auto;
 }
 
+/* Responsiveness */ 
+
 @media (max-width: 1160px) {
+    .header-wrapper {
+        display: block;
+    }
+
+    .profile-wrapper {
+        width: 300px;
+        height: 400px;
+        float: left;
+        margin-right: 2rem;
+    }
+
+    .about-wrapper {
+        margin: auto;
+        margin-top: 60px;
+        width: min(100vw - 200px, 850px);
+    }
+
     .contact-img {
         max-width: 300px;
+    }
+
+    .profile {
+        transform: translateX(-25%);
     }
 }
 

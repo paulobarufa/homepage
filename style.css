@@ -53,13 +53,18 @@ header {
     left: -25%;
 }
 
-.profile-name {
+.profile-name-desktop {
     position: absolute;
-    bottom: 0;
-    left: 7%;
+    bottom: 0%;
+    left: 10%;
     margin: 0;
     font-size: 60px;
     color: rgb(255, 255, 255);
+    z-index: 10;
+}
+
+.profile-name-tablet {
+    display: none;
 }
 
 .about-wrapper {
@@ -241,14 +246,112 @@ footer {
     .profile {
         transform: translateX(-25%);
     }
+
+    .profile-name-tablet {
+        display: block;
+        position: absolute;
+        top: 2%;
+        left: 30%;
+        font-size: 60px;
+        color: rgb(255, 255, 255);
+        z-index: 10;
+        font-size: 50px;
+    }
+
+    .profile-name-desktop {
+        display: none;
+    }
+
+    main {
+        padding: 0px 70px;
+    }
 }
 
 @media (max-width: 830px) {
+
+    .header-wrapper {
+        display: flex;
+        flex-direction: column;
+        padding: 25px;
+    }
+
+    .about-wrapper {
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0); 
+        box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+        padding: 0;
+        background-color: rgba(255, 255, 255, 0);
+        width: min(100vw - 50px, 800px);
+    }
+
+    .profile-wrapper {
+        width: fit-content;
+        height: fit-content;
+        float: none;
+        margin-right: 0;
+    }
+
+    .profile-wrapper::after {
+        display: none;
+    }
+
+    .profile {
+        transform: translateX(0);
+        width: min(100vw - 50px, 500px);
+    }
+
     .footer-wrapper {
         flex-wrap: wrap;
     }
 
     .contact-img {
+        width: min(100vw - 50px, 800px);
         max-width: 800px;
+    }
+
+    footer {
+        padding: 0px 25px;
+    }
+    
+    .profile-name-tablet {
+        display: none;
+    }
+
+    .profile-name-desktop {
+        display: block;
+        position: absolute;
+        bottom: 0%;
+        left: 20%;
+        margin: 0;
+        font-size: 60px;
+        color: rgb(255, 255, 255);
+        z-index: 10;
+    }
+
+}
+
+@media (max-width: 680px) {
+
+    main {
+        padding: 0px 25px;
+    }
+
+    .profile-name-desktop {
+        font-size: 40px;
+        left: 25%;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .profile-name-desktop {
+        font-size: 30px;
+    }
+
+    .contact-title {
+        font-size: 30px;
+    }
+
+    .contact-text {
+        font-size: 16px;
     }
 }
